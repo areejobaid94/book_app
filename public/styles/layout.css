@@ -33,7 +33,7 @@
   font-family: 'Open Sans', sans-serif;
 }
 
-@media (min-width: 480px) {
+@media (min-width: 580px) {
   .cards { grid-template-columns: repeat(2, 1fr); }
   .header1{
     background-color: black;
