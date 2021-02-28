@@ -8,8 +8,9 @@
 </head>
 <body>
     <main>
-        <form action="/searches/new" method="GET">
+        <form action="/searches" method="POST">
             <div>
+                <input type="text" placeholder="Enter title or author" name="search-que">
                 <label for="title">
                     Title
                     <input type="radio" name="searching-by" value="title">
