@@ -4,17 +4,18 @@ var cors = require('cors')
 require("dotenv").config();
 app.use(cors());
 app.set('view engine', 'ejs');
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const superagent = require('superagent');
 
 const port = process.env.PORT || 3000;
 
+
 app.get('/searches/new', (req, res) => {
   res.render('pages/searches/new.ejs')
 });
 
-app.get('/hello',(req,res) =>{
+app.get('/',(req,res) =>{
     res.render('pages')
 });
 
@@ -33,7 +34,7 @@ app.post('/searches',(req,res) =>{
 function Book (obj){
     this.title =obj.volumeInfo.title;
     this.auther = obj.volumeInfo.authors ? obj.volumeInfo.authors.join(' & ') : 'Not Mentioned';
-    this.url = obj.imageLinks ? obj.imageLinks.smallThumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
+    this.url = obj.volumeInfo.imageLinks ? obj.volumeInfo.imageLinks.smallThumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
     this.description = obj.searchInfo.textSnippet;
 };
 
