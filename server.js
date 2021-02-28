@@ -19,9 +19,15 @@ app.get('/hello',(req,res) =>{
 });
 
 app.post('/searches',(req,res) =>{
+    try{
+
+    
     getDataFomeApi(req.body['search-que'],req.body['searching-by']).then(data =>{
        res.render('pages/searches/show',{data:data}); 
     });
+} catch(error){
+    res.render('pages/error',{error : error});
+}
 });
 
 function Book (obj){
@@ -36,6 +42,7 @@ function getDataFomeApi(q,searchingBy){
         q: `${q}+in${searchingBy}`,
         maxResults : 10
     }
+
     return superagent.get('https://www.googleapis.com/books/v1/volumes',query).then(data =>{
         return data.body.items.map(ele=>{
             return new Book(ele);
