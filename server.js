@@ -9,10 +9,14 @@ app.use(express.static('public'));
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.render('pages/searches/new.ejs')
 })
 app.get('/hello',(req,res) =>{
     res.render('pages')
+})
+
+app.get('/searches/new',(req,res) =>{
+    console.log(req.query);
 })
 
 app.listen(port, () => {
