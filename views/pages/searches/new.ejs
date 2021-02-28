@@ -4,13 +4,25 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/styles/style.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Document</title>
 </head>
-<body>
-    <main>
+<body class="body">
+
+
+    <header>
+        <h1 class="header1">Best Books!
+            <i class="fa fa-bars"></i>
+        </h1>
+
+        <h2 class="header2">Search by Title or Auther</h2>
+
+    </header>
+    <main class="display">
         <form action="/searches" method="POST">
-            <div>
-                <input type="text" placeholder="Enter title or author" name="search-que">
+            <div class="display-dev">
+                <input class="place" type="text" placeholder="Enter title or author" name="search-que">
                 <label for="title">
                     Title
                     <input type="radio" name="searching-by" value="title">
@@ -19,7 +31,7 @@
                     Author
                     <input type="radio" name="searching-by"  value="author">
                 </label>
-                <input type="submit" value="Submit">
+                <input  class="submit" type="submit" value="Submit">
             </div>
         </form>
     </main>
