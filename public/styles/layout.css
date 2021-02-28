@@ -9,6 +9,7 @@
   margin: 5%;
   margin-bottom: 4%;
   padding: 10%;
+  box-shadow:#7a7a7a 2px 2px 2px 2px;
 }
 .card-auther{
   font-style: italic;
@@ -23,6 +24,7 @@
   color: white;
   margin-top: 5%;
   margin-bottom: 2%;
+  text-shadow: black 2px 2px;
 }
 
 .card-des{
