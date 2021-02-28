@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/style.css" rel="stylesheet" type="text/css">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
-    <header></header>
+    <header>
+        <h1 class="header1">Best Books!
+            <i class="fa fa-bars"></i>
+        </h1>
+        <h2 class="header2">Search Result</h2>
+    </header>
     <main>
-        <% data.forEach(ele =>{%>
-            <ul>
-                <li>
-                    <div>
+        <div class='cards'>
+            <% data.forEach(ele=>{%>
+                <div class = 'card'>
+                    <img class = 'card-img'src=<%=ele.url%> alt="">
+                    <h3 class="card-title">
                         <%= ele.title%>
+                    </h3>
+                    <br>
+                    <h5 class="card-auther">
                         <%= ele.auther%>
-                        <img src=<%=ele.url%> alt="">
-                        <%= ele.description%>
-                    </div>
-                </li> 
-            </ul>
-       <%})%>
+                    </h5>
+                    <br>
+                    <p  class="card-des">
+                        <%- ele.description.split()%>
+                    </p>
+                </div>
+                <%})%>
+        </div>
     </main>
     <footer></footer>
 </body>
+
 </html>

@@ -16,7 +16,15 @@ app.get('/searches/new', (req, res) => {
 });
 
 app.get('/',(req,res) =>{
-    res.render('pages')
+    res.render('pages');
+});
+
+app.get('/hello',(req,res) =>{
+    res.send('Hello');
+});
+
+app.get('*',(req,res) =>{
+    res.status(404).render('pages/error',{error:'404 Error'});
 });
 
 app.post('/searches',(req,res) =>{
@@ -48,9 +56,11 @@ function getDataFomeApi(q,searchingBy){
         return data.body.items.map(ele=>{
             return new Book(ele);
         });
+    }).catch(error=>{
+        res.render('pages/error',{error : error});
     })
 }
 
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`app listening at http://localhost:${port}`)
 })
