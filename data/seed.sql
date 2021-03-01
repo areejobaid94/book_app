@@ -5,7 +5,7 @@ CREATE TABLE favbook (
     title VARCHAR(255),
     author VARCHAR(255),
     image_url VARCHAR(255),
-    description VARCHAR(255)
+    description VARCHAR(500)
   );
 
 INSERT INTO  favbook(title,author,image_url,description) VALUES ('Ahmad', 'Ahmad', 'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__340.jpg','Ahmad');
