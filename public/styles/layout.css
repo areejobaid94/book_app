@@ -21,8 +21,9 @@
   color: #7a7a7a;
 }
 .card-img{
-  width: 95%;
-  
+  width: 50%;
+  height: max-content;
+
 }
 .card-title{
   font-family: 'Poppins', sans-serif;
