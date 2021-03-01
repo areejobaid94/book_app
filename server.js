@@ -92,13 +92,23 @@ function viewDelails(req, res) {
     });
 };
 
-function saveToDB(req, res) {
+function addToTable(obj) {
     let insertQuery = 'INSERT INTO  favbook(title,author,image_url,description)  VALUES ($1,$2,$3,$4) RETURNING id;'
-    client.query(insertQuery, [req.body.title, req.body.author, req.body['image_url'], req.body.description]).then(data => {
-        res.redirect(`/books/${data.rows[0].id}`);
+    return client.query(insertQuery, [obj.title, obj.author, obj['image_url'], obj.description]).then(data => {
+        return data.rows[0].id;
     }).catch(e => {
         return handelError(res, e);
     })
+
+}
+function saveToDB(req, res) {
+    return addToTable(req.body).then(data=>{
+        res.redirect(`/books/${data}`);
+    }).catch(error=>{
+        handelError(res,error);
+    })
+    
+
 }
 function handelError(res, error) {
     res.render('pages/error', { error: error });
