@@ -1,0 +1,18 @@
+p{
+    background-color: hsl(0, 0%, 90%);
+    color: black;
+}
+a{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+.count{
+    background-color: white;
+    color: black;
+    border-radius: 25px;
+    width: 21px;
+    position: absolute;
+    margin-left: 118px;
+}
