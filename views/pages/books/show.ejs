@@ -15,17 +15,14 @@
 
 <body>
     <header>
-        <h1 class="header1">Best Books!
+        <h1 class="header1">
+            <a href="/">Best Books!</a>
             <i class="fa fa-bars"></i>
         </h1>
-        <h2 class="header2">Saved Books<%= data.length%>
-        </h2>
-        <a href="/searches/new">search</a>
     </header>
     <main>
-        <%- include ('./books/detail.ejs') %>
+        <%- include ('./detail.ejs') %>
     </main>
     <footer></footer>
 </body>
-
 </html>
