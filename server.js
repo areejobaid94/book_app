@@ -31,11 +31,11 @@ app.get('*', (req, res) => {
 
 app.post('/searches', (req, res) => {
     try {
-        getDataFomeApi(req.body['search-que'], req.body['searching-by']).then(data => {
+        getDataFomeApi(req.body['search-que'], req.body['searching-by'],res).then(data => {
             res.render('pages/searches/show', { data: data });
         });
-    } catch (error) {
-        res.render('pages/error', { error: error });
+    } catch (e) {
+        return handelError(res,e);
     }
 });
 
@@ -48,44 +48,47 @@ function Book(obj) {
     this.description = obj.searchInfo.textSnippet;
 };
 
-function getDataFomeApi(q, searchingBy) {
+function getDataFomeApi(q, searchingBy,res) {
     const query = {
         q: `${q}+in${searchingBy}`,
         maxResults: 10
     }
-
     return superagent.get('https://www.googleapis.com/books/v1/volumes', query).then(data => {
         return data.body.items.map(ele => {
             return new Book(ele);
         });
     }).catch(error => {
-        res.render('pages/error', { error: error });
+        return handelError(res,error);
     })
 }
 
 function getSavedData(req,res){
-    return getFormDB().then(data=>{
-        res.render('pages',{data:data,isVis: 'visible',isVisDis:'hidden'})
-    }).catch(error => {
-        res.render('pages/error', { error: error });
-    })
+    try{
+        return getFormDB(null,res).then(data=>{
+            res.render('pages',{data:data,isVis: 'visible',isVisDis:'hidden'})
+        }).catch(e => {
+            handelError(res,e);
+        })
+    }
+    catch (e) {
+        return handelError(res,e);
+    }
 };
 
-function getFormDB(id){
+function getFormDB(id,res){
     let query = id ?  `SELECT * FROM favbook WHERE id = ${id}`:'SELECT * FROM favbook';
     return client.query(query).then(data=>{
         return data.rows;
-    }).catch(error => {
-        res.render('pages/error', { error: error });
+    }).catch(e => {
+        return handelError(res,e);
     })
 }
 
 function viewDelails(req, res){
-    return getFormDB(req.params.id).then(data=>{
-        console.log(data);
+    return getFormDB(req.params.id,res).then(data=>{
         res.render('pages/books/show',{data:data,isVis:'hidden',isVisDis:'visible'})
-    }).catch(error => {
-        res.render('pages/error', { error: error });
+    }).catch(e => {
+        return handelError(res,e);
     });
 };
 
@@ -94,8 +97,11 @@ function saveToDB(req,res){
     client.query(insertQuery,[req.body.title,req.body.author,req.body['image_url'],req.body.description]).then(data=>{
         res.redirect(`/books/${data.rows[0].id}`);
     }).catch(e => {
-        res.render('pages/error', { error: error });
+        return handelError(res,e);
     })
+}
+function handelError(res,error){
+    res.render('pages/error', { error: error });
 }
 
 client.connect().then(() => {
