@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="/styles/style.css" rel="stylesheet" type="text/css">
 
-    <title>Document</title>
+    <%- include ('../layout/head.ejs') %>
+    
 
-</head>
+
 <body>
-    <header></header>
+    <%- include ('../layout/header.ejs') %>
     <main>
-        <h1>Hello World....</h1>
+        <div class="header2"> <h2 class="count"><%= data.length%></h2> Saved Books 
+        </div>
+        <%- include ('./books/detail.ejs') %>
+        
     </main>
     <footer></footer>
 </body>
+
 </html>
