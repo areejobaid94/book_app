@@ -19,9 +19,6 @@
                         <%= ele.author%>
                     </h5>
                     <br>
-                    <p  class="card-des">
-                        <%- ele.description%>
-                    </p>
                     <form action="/books" method="POST">
                         <input type="text" style="visibility: hidden;" name ='image_url'value = <%=ele.image_url %>>
                         <input type="text"  style="visibility: hidden;" name ='title' value= <%= ele.title %> >
