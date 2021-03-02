@@ -14,7 +14,7 @@ a{
     border-radius: 25px;
     width: 21px;
     position: absolute;
-    margin-left: 118px;
+    margin-left: 27%;
 }
 .margin{
     position: absolute;
@@ -29,6 +29,66 @@ a{
     background-color: black;
     color: white;
     padding: 20px 40px 20px 40px;
-    margin-left: -7px;
-    margin-top: -36px;
+    margin: auto;
+    margin-top: 3%;
+}
+#delete-edit-div{
+    margin-top: 6%;
+    width:100%;
+    display: -webkit-inline-box;
+    margin-bottom:6%;
+}
+
+.delete-update{
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border-radius: 6px;
+    border-color: #4a4a4a;
+    padding: 10px;
+}
+
+#delete-form, .delete-update{
+    margin: auto;
+}
+
+.input{
+    height: 35px;
+    width: 92%;
+    margin-bottom: 8%;
+    border-style: none;
+    padding: 4%;
+    border-radius: 5px;
+}
+
+.input-area{
+    width: 92%;
+    margin-bottom: 8%;
+    border-style: none;
+    padding: 4%;
+    border-radius: 5px;  
+}
+
+#submit-button-Update{
+    float: right;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border-radius: 6px;
+    border-color: #4a4a4a;
+    padding: 10px;
+    margin-top: 4%;
+}
+  @media (min-width: 900px) {
+    .count{margin-left: 42%;}
+  }
+
+#submit-button-Select{
+    margin: auto;
+    background-color: #4a4a4a;
+    color: #ffffff;
+    border-radius: 6px;
+    border-color: #4a4a4a;
+    padding: 10px;
+    width: 70%;
+    height: 50px;
+    margin-top: 20%;
 }

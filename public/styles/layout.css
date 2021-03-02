@@ -8,16 +8,16 @@
   background-color: #d8d8d8;
   margin: 5%;
   margin-bottom: 4%;
-  padding: 10%;
+  padding: 5%;
   box-shadow:#7a7a7a 2px 2px 2px 2px;
   border-radius: 10px;
-
-
+  height: 665px;
 }
 .card-auther{
   font-style: italic;
   margin-top: 2%;
   color: #7a7a7a;
+  height: 50px;
 }
 .card-img{
   width: 200px;
@@ -29,6 +29,7 @@
   margin-top: 5%;
   margin-bottom: 2%;
   text-shadow: black 2px 2px;
+  height: 40px;
 }
 
 .card-des{
@@ -50,6 +51,7 @@
     font-size: 30px;
     text-align: left;
 }
+.count{margin-left: 42%;}
 .header2{
     background-color:hsl(0deg 0% 29%);
     color: white;
@@ -63,4 +65,5 @@
 
 @media (min-width: 900px) {
   .cards { grid-template-columns: repeat(3, 1fr); }
+  .count{margin-left: 42%;}
 }
