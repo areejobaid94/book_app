@@ -8,7 +8,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 const superagent = require('superagent');
 const pg = require('pg');
-const client = new pg.Client({ connectionString: process.env.DATABASE_URL});
+const client = new pg.Client({ connectionString: process.env.DATABASE_URL,   ssl: { rejectUnauthorized: false } });
 const methodOverride = require('method-override')
 app.use(methodOverride('_method'))
 
