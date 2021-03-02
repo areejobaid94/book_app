@@ -1,0 +1,7 @@
+<form action= "<%= action %>" style="display:  <%= isVis%>" method="POST" id = 'edit-form' >
+    <input class = 'input' type="text" style="display: <%= isVisDis%>;" name ='title' value= '<%= ele.title %>'>
+    <input  class = 'input' type="text" style="display: <%= isVisDis%>;" name ='author' value= '<%= ele.author %>' >
+    <input  class = 'input' type="text" style="display: none;" name ='image_url' value = '<%= ele.image_url %>'>
+    <textarea  rows="10"  class = 'input-area' type="text" style="display: <%= isVisDis%>;"  name="description"  value = '<%= ele.description %>'> <%= ele.description %></textarea>
+    <input  id ="submit-button-<%= submit.split(' ')[0] %>" type="submit" value= '<%= submit%>' style="display: <%= submitVis%>;" >
+</form>

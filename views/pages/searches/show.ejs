@@ -4,9 +4,7 @@
     <%- include ('../../layout/head.ejs') %>
 <body>
     <%- include ('../../layout/header.ejs') %>
-
     <main>
-        
         <div class='cards'>
             <% data.forEach(ele=>{%>
                 <div class = 'card'>
@@ -19,14 +17,7 @@
                         <%= ele.author%>
                     </h5>
                     <br>
-                    <form action="/books" method="POST">
-                        <input type="text" style="visibility: hidden;" name ='image_url'value = 
-                        <%=ele.image_url %>>
-                        <input type="text"  style="visibility: hidden;" name ='title' value= '<%= ele.title %>' >
-                        <input type="text"  style="visibility: hidden;" name ='author' value= '<%= ele.author %>' >
-                        <input type="text"  style="visibility: hidden;"  name="description" value = '<%= ele.description %>' >
-                        <input class="margin" type="submit" value="Select this Book">
-                    </form>
+                    <%- include ('../books/edit.ejs', {ele: ele,isVisDis:'none', isVis:'block','submitVis':'block'}) %>
                 </div>
                 <%})%>
         </div>
